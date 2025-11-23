@@ -8,7 +8,7 @@ private:
     std::string errorMessage;
 
 public:
-    VectorException(std::string message) {
+    VectorException(const std::string& message) {
         this->errorMessage = message;
     }
 
@@ -37,6 +37,12 @@ private:
     unsigned int arrayCapacity;
 
 public:
+    Vector() {
+        this->array = new T[0];
+        this->ararySize = 0;
+        this->arrayCapacity = 0;
+    }
+
     Vector(std::initializer_list<T> input) {
         // this->arraySize, this->arrayCapacity are set in this->add
         for (T value : input) {
